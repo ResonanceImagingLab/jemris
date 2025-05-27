@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters FOVx="200" FOVy="200" GradMaxAmpl="5" GradSlewRate="20" Name="P" Nx="64"
+            Ny="64"
+            TE="10"
+            TI="1100"
+            TR="5000"
+            TxCoilArray="/usr/local/share/jemris/matlab/uniform.xml">
+   <ConcatSequence Name="MP2RAGE" Repetitions="1">
+      <ATOMICSEQUENCE Name="Inversion">
+         <HARDRFPULSE Duration="10" FlipAngle="180" Name="P1" Symmetry="0.5"/>
+      </ATOMICSEQUENCE>
+      <DELAYATOMICSEQUENCE Delay="168" DelayType="B2E" Name="TA"/>
+      <CONCATSEQUENCE Name="C2" Observe="N=P.Ny" Repetitions="N">
+         <ATOMICSEQUENCE Name="A2">
+            <HARDRFPULSE Duration="0.5" FlipAngle="5" Name="P2" Observe="D=P2.Duration" Symmetry="0.5"/>
+            <TRAPGRADPULSE Axis="GX" FlatTopArea="-abs(A)" FlatTopTime="2" InitialDelay="D" Name="P3"
+                           Observe="D=P2.Duration, N=P.Nx, F=P.FOVx, A=P.KMAXx"/>
+            <TRAPGRADPULSE Axis="GY" FlatTopArea="-abs(A)+((C+1)*K)" FlatTopTime="2" InitialDelay="D"
+                           Name="P4"
+                           Observe="D=P2.Duration, C=C2.Counter, K=P.DKy, A=P.KMAXy"/>
+         </ATOMICSEQUENCE>
+         <ATOMICSEQUENCE Name="A3" Observe="D=P2.Duration">
+            <TRAPGRADPULSE ADCs="N" Axis="GX" FlatTopArea="2*A" FlatTopTime="4" InitialDelay="D+2"
+                           Name="P5"
+                           Observe="D=P2.Duration, N=P.Nx, A = P.KMAXx"/>
+         </ATOMICSEQUENCE>
+         <DELAYATOMICSEQUENCE Delay="3" DelayType="B2E" Name="D3"/>
+      </CONCATSEQUENCE>
+      <DELAYATOMICSEQUENCE Delay="2000" DelayType="B2E" Name="TB"/>
+   </ConcatSequence>
+</Parameters>

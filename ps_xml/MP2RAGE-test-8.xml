@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters FOVx="220" FOVy="220" FOVz="160" GradMaxAmpl="20" GradSlewRate="150" Name="P"
+            Nx="220"
+            Ny="220"
+            Nz="160"
+            TI="1.1"
+            TR="6.75"
+            TxCoilArray="/usr/local/share/jemris/matlab/uniform.xml">
+   <ConcatSequence Name="MP2RAGE" Repetitions="1">
+      <ATOMICSEQUENCE Name="Inversion">
+         <HARDRFPULSE Duration="10" FlipAngle="180" Name="P1" Symmetry="0.5"/>
+      </ATOMICSEQUENCE>
+      <DELAYATOMICSEQUENCE Delay="168" DelayType="B2E" Name="TA"/>
+      <CONCATSEQUENCE Name="C2" Repetitions="92">
+         <ATOMICSEQUENCE Name="A2">
+            <HARDRFPULSE Duration="3.12" FlipAngle="5" Name="P2" Observe="D=P2.Duration" Symmetry="0.5"/>
+            <TRAPGRADPULSE Axis="GX" FlatTopArea="-6.04" FlatTopTime="3.69" InitialDelay="D" Name="P3"
+                           Observe="D=P2.Duration"/>
+            <TRAPGRADPULSE Axis="GY" FlatTopArea="-6.04+((30*C)/N)" FlatTopTime="3.69" InitialDelay="D"
+                           Name="P4"
+                           Observe="D=P2.Duration, C=C2.Counter, N=P.Ny, T=P3.Duration"/>
+         </ATOMICSEQUENCE>
+         <ATOMICSEQUENCE Name="A3" Observe="D=P2.Duration">
+            <TRAPGRADPULSE ADCs="200" Axis="GX" FlatTopArea="12.02" FlatTopTime="3.69" InitialDelay="D"
+                           Name="P5"
+                           Observe="D=P2.Duration"/>
+         </ATOMICSEQUENCE>
+         <DELAYATOMICSEQUENCE Delay="3" DelayType="B2E" Name="D3"/>
+      </CONCATSEQUENCE>
+      <DELAYATOMICSEQUENCE Delay="2000" DelayType="B2E" Name="TB"/>
+      <CONCATSEQUENCE Name="C3" Repetitions="92">
+         <ATOMICSEQUENCE Name="A4">
+            <HARDRFPULSE Duration="3.12" FlipAngle="5" Name="P6" Observe="D=P6.Duration" Symmetry="0.5"/>
+            <TRAPGRADPULSE Axis="GX" FlatTopArea="-6.04" FlatTopTime="3.69" InitialDelay="D" Name="P7"
+                           Observe="D=P6.Duration"/>
+            <TRAPGRADPULSE Axis="GY" FlatTopArea="-6.04+((30*C)/N)" FlatTopTime="3.69" InitialDelay="D"
+                           Name="P8"
+                           Observe="D=P6.Duration, C=C3.Counter, N=P.Ny, T=P7.Duration"/>
+         </ATOMICSEQUENCE>
+         <ATOMICSEQUENCE Name="A5">
+            <TRAPGRADPULSE ADCs="200" Axis="GX" FlatTopArea="12.02" FlatTopTime="3.69" InitialDelay="D"
+                           Name="P9"
+                           Observe="D=P6.Duration"/>
+         </ATOMICSEQUENCE>
+         <DELAYATOMICSEQUENCE Delay="3" DelayType="B2E" Name="D4"/>
+      </CONCATSEQUENCE>
+      <DELAYATOMICSEQUENCE ADCFlag="1" DelayType="B2E" Name="TC"/>
+   </ConcatSequence>
+</Parameters>
