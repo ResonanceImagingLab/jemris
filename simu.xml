@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<simulate name="JEMRIS">
+   <sample name="2D sphere" uri="/home/rowleylab1/github/jemris/sample.h5"/>
+   <RXcoilarray uri="/usr/local/share/jemris/matlab/uniform.xml"/>
+   <TXcoilarray uri="/usr/local/share/jemris/matlab/uniform.xml"/>
+   <parameter ConcomitantFields="0" EvolutionPrefix="evol" EvolutionSteps="0" RandomNoise="0"/>
+   <sequence name="Jemris_GRE_MPRAGE_1"
+             uri="/home/rowleylab1/github/jemris/share/examples/Jemris_GRE_MPRAGE_1.xml"/>
+   <model name="Bloch" type="CVODE"/>
+</simulate>

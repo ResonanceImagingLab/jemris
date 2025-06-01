@@ -2,8 +2,8 @@
 <Parameters FOVx="128" FOVy="128" FOVz="1" Name="P" Nx="128" Ny="128" Nz="1" TE="32"
             TR="200">
    <ConcatSequence Name="R">
-      <ConcatSequence LoopFlag="2" Name="C" Observe="NY=P.Ny" Repetitions="NY"/>
-      <CONCATSEQUENCE Name="C3" Repetitions="1">
+      <ConcatSequence Name="C1"/>
+      <CONCATSEQUENCE LoopFlag="2" Name="C" Observe="NY=P.Ny" Repetitions="NY">
          <ATOMICSEQUENCE Name="A1">
             <HARDRFPULSE Duration="0.1" FlipAngle="20" InitialPhase="C*(C+1)*50" Name="P1"
                          Observe="C=C.Counter"/>
