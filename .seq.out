@@ -1,0 +1,19 @@
+
+jemris 2.9.2 (372c37831c74f86293f7db1f762af0b9ff37c92d)
+
+dump of sequence tree
+                          TYPE              CLASS        NAME  duration      ADCs     TPOIs |  module specific
+                          ----------------------------------------------------------------- |  ---------------
+sequence-root-------->   CONCAT       CONCATSEQUENCE       C1    51.220        0        14  |  Repetitions = 1, type SLI|PHA|PAR|SET|CON|AVG = 0|0|0|0|0|0
+  |_ child 1   ------>     ATOM       ATOMICSEQUENCE       A1     1.000        0         3  | 
+    |_ child 1   ---->    PULSE          HARDRFPULSE       P1     1.000        0         3  |  Axis = RF  , (Flipangle,Phase,Bandwidth,Channel,Symmetry) = (90,0,1e+16,0,0.5) 
+  |_ child 2   ------>     ATOM       ATOMICSEQUENCE       A2     0.460        0         3  | 
+    |_ child 1   ---->    PULSE        TRAPGRADPULSE       P2     0.460        0         4  |  Axis = GX  , Area = -1.00531
+    |_ child 2   ---->    PULSE        TRAPGRADPULSE       P3     0.460        0         4  |  Axis = GY  , Area = -1.00531
+  |_ child 3   ------>     ATOM  DELAYATOMICSEQUENCE       D1    48.540        0         2  |  DelayType = B2E  , StartSeq = A1 , Delay = 50
+    |_ child 1   ---->    PULSE           EMPTYPULSE    eP_D1    48.540        0         2  |  Axis = none 
+  |_ child 4   ------>   CONCAT       CONCATSEQUENCE       C2     1.220        0         6  |  Repetitions = 1, type SLI|PHA|PAR|SET|CON|AVG = 0|0|0|0|0|0
+    |_ child 1   ---->     ATOM       ATOMICSEQUENCE       A3     1.220        0         4  | 
+      |_ child 1   -->    PULSE        TRAPGRADPULSE       P4     1.220        0         4  |  Axis = GX  , Area = 2.23179 , FlatTop: (Area,time)= (2.01062,1)
+    |_ child 2   ---->     ATOM       ATOMICSEQUENCE       A4     0.000        0         2  | 
+      |_ child 1   -->    PULSE        TRAPGRADPULSE       P5     0.000        0         4  |  Axis = GY  , Area = 0

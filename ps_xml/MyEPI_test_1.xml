@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters FOVx="200" FOVy="200" GradMaxAmpl="5" GradSlewRate="20" Name="P" Nx="64"
+            Ny="64"
+            TE="50"
+            TR="100">
+   <ConcatSequence Name="C1">
+      <ATOMICSEQUENCE Name="A1">
+         <HARDRFPULSE Duration="1" FlipAngle="90" Name="P1" Symmetry="0.5"/>
+      </ATOMICSEQUENCE>
+      <ATOMICSEQUENCE Name="A2">
+         <TRAPGRADPULSE Area="(-abs(2*A*(-1)^C))/2" Axis="GX" Name="P2"
+                        Observe="A=P.KMAXx, C=C2.Counter, N=P.Nx"/>
+         <TRAPGRADPULSE Area="-A" Axis="GY" Name="P3" Observe="A=P.KMAXy"/>
+      </ATOMICSEQUENCE>
+      <DELAYATOMICSEQUENCE Delay="TE" DelayType="B2E" Name="D1" Observe="TE=P.TE" StartSeq="A1"/>
+      <CONCATSEQUENCE Name="C2" Repetitions="1">
+         <ATOMICSEQUENCE Name="A3">
+            <TRAPGRADPULSE Axis="GX" FlatTopArea="2*A" FlatTopTime="1" Name="P4"
+                           Observe="A=P.KMAXx, C=C2.Counter,N=P.Nx"/>
+         </ATOMICSEQUENCE>
+         <ATOMICSEQUENCE Name="A4">
+            <TRAPGRADPULSE ADCFlag="1" Axis="GY" Name="P5"/>
+         </ATOMICSEQUENCE>
+      </CONCATSEQUENCE>
+   </ConcatSequence>
+</Parameters>
