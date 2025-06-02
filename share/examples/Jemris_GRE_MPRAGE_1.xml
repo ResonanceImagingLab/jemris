@@ -7,10 +7,10 @@
             <HARDRFPULSE Duration="10" FlipAngle="180" Name="P7" Symmetry="0.5"/>
          </ATOMICSEQUENCE>
       </ConcatSequence>
-      <ConcatSequence LoopFlag="0" Name="C2" Repetitions="2" Vector="0">
+      <ConcatSequence LoopFlag="0" Name="C2" Repetitions="1" Vector="0">
          <CONCATSEQUENCE LoopFlag="2" Name="C" Observe="NY=P.Ny" Repetitions="NY">
             <ATOMICSEQUENCE Name="A1">
-               <HARDRFPULSE Duration="0.1" FlipAngle="20" InitialPhase="C*(C+1)*50" Name="P1"
+               <HARDRFPULSE Duration="0.1" FlipAngle="20" InitialPhase="0.5*117*((C^2)+C+2)" Name="P1"
                             Observe="C=C.Counter"/>
             </ATOMICSEQUENCE>
             <DELAYATOMICSEQUENCE Delay="TE" DelayType="C2C" Name="D3" Observe="TE=P.TE" StartSeq="A1"

@@ -4,7 +4,8 @@
    <ConcatSequence Name="R">
       <ConcatSequence LoopFlag="2" Name="C" Observe="NY=P.Ny" Repetitions="NY">
          <ATOMICSEQUENCE Name="A1">
-            <HARDRFPULSE Axis="RF" Duration="0.1" FlipAngle="20" InitialPhase="C*(C+1)*50" Name="P1"
+            <HARDRFPULSE Axis="RF" Duration="0.1" FlipAngle="5" InitialPhase="0.5*117*((C^2)+C+2)"
+                         Name="P1"
                          Observe="C=C.Counter"/>
          </ATOMICSEQUENCE>
          <DELAYATOMICSEQUENCE Delay="TE" DelayType="C2C" Name="D1" Observe="TE=P.TE" StartSeq="A1"
