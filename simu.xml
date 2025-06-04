@@ -4,7 +4,6 @@
    <RXcoilarray uri="/usr/local/share/jemris/matlab/uniform.xml"/>
    <TXcoilarray uri="/usr/local/share/jemris/matlab/uniform.xml"/>
    <parameter ConcomitantFields="0" EvolutionPrefix="evol" EvolutionSteps="0" RandomNoise="0"/>
-   <sequence name="Jemris_GRE_MPRAGE_2"
-             uri="/home/rowleylab1/github/jemris/share/examples/Jemris_GRE_MPRAGE_2.xml"/>
+   <sequence name="gre" uri="/home/rowleylab1/github/jemris/share/examples/gre.xml"/>
    <model name="Bloch" type="CVODE"/>
 </simulate>

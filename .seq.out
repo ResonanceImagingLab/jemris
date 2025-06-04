@@ -1,40 +1,22 @@
 
-jemris 2.9.2 (372c37831c74f86293f7db1f762af0b9ff37c92d)
+jemris 2.9.2 (566a9858fc78663e41913b65b599af3aac6f619a)
 
 dump of sequence tree
                           TYPE              CLASS        NAME  duration      ADCs     TPOIs |  module specific
                           ----------------------------------------------------------------- |  ---------------
-sequence-root-------->   CONCAT       CONCATSEQUENCE        R 59788.560    32768     38647  |  Repetitions = 1, type SLI|PHA|PAR|SET|CON|AVG = 0|0|0|0|0|0
-  |_ child 1   ------>   CONCAT       CONCATSEQUENCE       C0    10.000        0         3  |  Repetitions = 1, type SLI|PHA|PAR|SET|CON|AVG = 0|0|0|0|0|0
-    |_ child 1   ---->     ATOM       ATOMICSEQUENCE       A5    10.000        0         3  | 
-      |_ child 1   -->    PULSE          HARDRFPULSE       P7    10.000        0         3  |  Axis = RF  , (Flipangle,Phase,Bandwidth,Channel,Symmetry) = (180,0,1e+16,0,0.5) 
-  |_ child 2   ------>   CONCAT       CONCATSEQUENCE        C 25600.000    16384     19322  |  Repetitions = 128, type SLI|PHA|PAR|SET|CON|AVG = 0|1|0|0|0|0
+sequence-root-------->   CONCAT       CONCATSEQUENCE        R 25600.000    16384     19322  |  Repetitions = 1, type SLI|PHA|PAR|SET|CON|AVG = 0|0|0|0|0|0
+  |_ child 1   ------>   CONCAT       CONCATSEQUENCE        C 25600.000    16384     19322  |  Repetitions = 128, type SLI|PHA|PAR|SET|CON|AVG = 0|1|0|0|0|0
     |_ child 1   ---->     ATOM       ATOMICSEQUENCE       A1     0.100        0         3  | 
-      |_ child 1   -->    PULSE          HARDRFPULSE       P1     0.100        0         3  |  Axis = RF  , (Flipangle,Phase,Bandwidth,Channel,Symmetry) = (20,951093,1e+16,0,0.5) 
-    |_ child 2   ---->     ATOM  DELAYATOMICSEQUENCE       D3    19.320        0         2  |  DelayType = C2C  , StartSeq = A1 , StopSeq = A3 , Delay = 32
-      |_ child 1   -->    PULSE           EMPTYPULSE    eP_D3    19.320        0         2  |  Axis = none 
+      |_ child 1   -->    PULSE          HARDRFPULSE       P1     0.100        0         3  |  Axis = RF  , (Flipangle,Phase,Bandwidth,Channel,Symmetry) = (5,812800,1e+16,0,0.5) 
+    |_ child 2   ---->     ATOM  DELAYATOMICSEQUENCE       D1    19.320        0         2  |  DelayType = C2C  , StartSeq = A1 , StopSeq = A3 , Delay = 32
+      |_ child 1   -->    PULSE           EMPTYPULSE    eP_D1    19.320        0         2  |  Axis = none 
     |_ child 3   ---->     ATOM       ATOMICSEQUENCE       A2     4.230        0         6  | 
       |_ child 1   -->    PULSE        TRAPGRADPULSE       P2     4.230        0         4  |  Axis = GX  , Area = -3.22013
       |_ child 2   -->    PULSE        TRAPGRADPULSE       P3     4.100        0         4  |  Axis = GY  , Area = 3.09251
     |_ child 4   ---->     ATOM       ATOMICSEQUENCE       A3    16.800      128       132  | 
       |_ child 1   -->    PULSE        TRAPGRADPULSE       P4    16.800      128       132  |  Axis = GX  , ADC type ADC|IMG|ACS|PC|NOISE = 0|1|0|0|0 , Area = 6.44026 , FlatTop: (Area,time)= (6.28319,16)
-    |_ child 5   ---->     ATOM       ATOMICSEQUENCE       A4    13.890        0         6  | 
-      |_ child 1   -->    PULSE        TRAPGRADPULSE       P5    13.890        0         4  |  Axis = GX  , Area = 12.8805
-      |_ child 2   -->    PULSE        TRAPGRADPULSE       P6     2.550        0         4  |  Axis = GY  , Area = -1.54625
-    |_ child 6   ---->     ATOM  DELAYATOMICSEQUENCE       D4   145.660        0         2  |  DelayType = B2E  , StartSeq = A1 , Delay = 200
-      |_ child 1   -->    PULSE           EMPTYPULSE    eP_D4   145.660        0         2  |  Axis = none 
-  |_ child 3   ------>   CONCAT       CONCATSEQUENCE       C1 34178.560    16384     19322  |  Repetitions = 128, type SLI|PHA|PAR|SET|CON|AVG = 0|1|0|0|0|0
-    |_ child 1   ---->     ATOM       ATOMICSEQUENCE       A6     0.100        0         3  | 
-      |_ child 1   -->    PULSE          HARDRFPULSE       P8     0.100        0         3  |  Axis = RF  , (Flipangle,Phase,Bandwidth,Channel,Symmetry) = (20,951093,1e+16,0,0.5) 
-    |_ child 2   ---->     ATOM  DELAYATOMICSEQUENCE       D5    32.000        0         2  |  DelayType = C2C  , StartSeq = A1 , StopSeq = A3 , Delay = 32
-      |_ child 1   -->    PULSE           EMPTYPULSE    eP_D5    32.000        0         2  |  Axis = none 
-    |_ child 3   ---->     ATOM       ATOMICSEQUENCE       A7     4.230        0         6  | 
-      |_ child 1   -->    PULSE        TRAPGRADPULSE       P9     4.230        0         4  |  Axis = GX  , Area = -3.22013
-      |_ child 2   -->    PULSE        TRAPGRADPULSE      P10     4.100        0         4  |  Axis = GY  , Area = 3.09251
-    |_ child 4   ---->     ATOM       ATOMICSEQUENCE       A8    16.800      128       132  | 
-      |_ child 1   -->    PULSE        TRAPGRADPULSE      P11    16.800      128       132  |  Axis = GX  , ADC type ADC|IMG|ACS|PC|NOISE = 0|1|0|0|0 , Area = 6.44026 , FlatTop: (Area,time)= (6.28319,16)
-    |_ child 5   ---->     ATOM       ATOMICSEQUENCE       A9    13.890        0         6  | 
-      |_ child 1   -->    PULSE        TRAPGRADPULSE      P12    13.890        0         4  |  Axis = GX  , Area = 12.8805
-      |_ child 2   -->    PULSE        TRAPGRADPULSE      P13     2.550        0         4  |  Axis = GY  , Area = -1.54625
-    |_ child 6   ---->     ATOM  DELAYATOMICSEQUENCE       D6   200.000        0         2  |  DelayType = B2E  , StartSeq = A1 , Delay = 200
-      |_ child 1   -->    PULSE           EMPTYPULSE    eP_D6   200.000        0         2  |  Axis = none 
+    |_ child 5   ---->     ATOM       ATOMICSEQUENCE       A4    10.670        0         6  | 
+      |_ child 1   -->    PULSE        TRAPGRADPULSE       P6    10.670        0         4  |  Axis = GX  , Area = 9.6604
+      |_ child 2   -->    PULSE        TRAPGRADPULSE       P7     4.100        0         4  |  Axis = GY  , Area = -3.09251
+    |_ child 6   ---->     ATOM  DELAYATOMICSEQUENCE       D2   148.880        0         2  |  DelayType = B2E  , StartSeq = A1 , Delay = 200
+      |_ child 1   -->    PULSE           EMPTYPULSE    eP_D2   148.880        0         2  |  Axis = none 
