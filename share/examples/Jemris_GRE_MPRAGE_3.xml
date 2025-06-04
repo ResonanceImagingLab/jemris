@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Parameters FOVx="128" FOVy="128" FOVz="1" Name="P" Nx="128" Ny="128" Nz="1" TE="32"
-            TR="200">
+<Parameters FOVx="128" FOVy="128" FOVz="1" Name="P" Nx="128" Ny="128" Nz="1" TE="16"
+            TR="100">
    <ConcatSequence Name="R">
       <ConcatSequence Name="C0">
          <ATOMICSEQUENCE Name="A5">
