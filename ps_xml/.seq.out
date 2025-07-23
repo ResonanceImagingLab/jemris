@@ -1,0 +1,42 @@
+
+jemris 2.9.2 (c3002fe996c7b8a6f7926fa8b52b94cb1733fd8a)
+
+dump of sequence tree
+                          TYPE              CLASS        NAME  duration      ADCs     TPOIs |  module specific
+                          ----------------------------------------------------------------- |  ---------------
+sequence-root-------->   CONCAT       CONCATSEQUENCE        R136080.000    32768     55004  |  Repetitions = 16, type SLI|PHA|PAR|SET|CON|AVG = 0|0|0|0|0|0
+  |_ child 1   ------>   CONCAT       CONCATSEQUENCE       C0    10.000        0         3  |  Repetitions = 1, type SLI|PHA|PAR|SET|CON|AVG = 0|0|0|0|0|0
+    |_ child 1   ---->     ATOM       ATOMICSEQUENCE       A5    10.000        0         3  | 
+      |_ child 1   -->    PULSE          HARDRFPULSE       P7    10.000        0         3  |  Axis = RF  , (Flipangle,Phase,Bandwidth,Channel,Symmetry) = (180,0,1e+16,0,0.5) 
+  |_ child 2   ------>     ATOM  DELAYATOMICSEQUENCE       TA  1679.640        0         2  |  DelayType = B2E  , Delay = 1679.64
+    |_ child 1   ---->    PULSE           EMPTYPULSE    eP_TA  1679.640        0         2  |  Axis = none 
+  |_ child 3   ------>   CONCAT       CONCATSEQUENCE        C   430.720     1024      1718  |  Repetitions = 32, type SLI|PHA|PAR|SET|CON|AVG = 0|1|0|1|1|0
+    |_ child 1   ---->     ATOM       ATOMICSEQUENCE       A1     0.100        0         3  | 
+      |_ child 1   -->    PULSE          HARDRFPULSE       P1     0.100        0         3  |  Axis = RF  , (Flipangle,Phase,Bandwidth,Channel,Symmetry) = (5,58149,1e+16,0,0.5) 
+    |_ child 2   ---->     ATOM       ATOMICSEQUENCE       A2     1.820        0         7  | 
+      |_ child 1   -->    PULSE        TRAPGRADPULSE       P2     1.820        0         4  |  Axis = GX  , Area = -0.813118
+      |_ child 2   -->    PULSE        TRAPGRADPULSE       P3     1.720        0         4  |  Axis = GY  , Area = 0.736311
+      |_ child 3   -->    PULSE        TRAPGRADPULSE      P14     1.180        0         4  |  Axis = GZ  , Area = 0.343612
+    |_ child 3   ---->     ATOM       ATOMICSEQUENCE       A3     7.280       32        36  | 
+      |_ child 1   -->    PULSE        TRAPGRADPULSE       P4     7.280       32        36  |  Axis = GX  , ADC type ADC|IMG|ACS|PC|NOISE = 0|1|0|0|0 , Area = 1.62624 , FlatTop: (Area,time)= (1.5708,6.8)
+    |_ child 4   ---->     ATOM       ATOMICSEQUENCE       A4     4.260        0         8  | 
+      |_ child 1   -->    PULSE        TRAPGRADPULSE       P5     4.260        0         4  |  Axis = GX  , Area = 3.25247
+      |_ child 2   -->    PULSE        TRAPGRADPULSE       P6     1.220        0         4  |  Axis = GY  , Area = -0.368155
+      |_ child 3   -->    PULSE        TRAPGRADPULSE      P15     0.840        0         4  |  Axis = GZ  , Area = -0.171806
+  |_ child 4   ------>     ATOM  DELAYATOMICSEQUENCE       TB  3369.280        0         2  |  DelayType = B2E  , Delay = 3369.28
+    |_ child 1   ---->    PULSE           EMPTYPULSE    eP_TB  3369.280        0         2  |  Axis = none 
+  |_ child 5   ------>   CONCAT       CONCATSEQUENCE       C1   430.720     1024      1718  |  Repetitions = 32, type SLI|PHA|PAR|SET|CON|AVG = 0|1|0|1|1|0
+    |_ child 1   ---->     ATOM       ATOMICSEQUENCE       A6     0.100        0         3  | 
+      |_ child 1   -->    PULSE          HARDRFPULSE       P8     0.100        0         3  |  Axis = RF  , (Flipangle,Phase,Bandwidth,Channel,Symmetry) = (5,58149,1e+16,0,0.5) 
+    |_ child 2   ---->     ATOM       ATOMICSEQUENCE       A7     1.820        0         7  | 
+      |_ child 1   -->    PULSE        TRAPGRADPULSE       P9     1.820        0         4  |  Axis = GX  , Area = -0.813118
+      |_ child 2   -->    PULSE        TRAPGRADPULSE      P10     1.720        0         4  |  Axis = GY  , Area = 0.736311
+      |_ child 3   -->    PULSE        TRAPGRADPULSE      P16     1.180        0         4  |  Axis = GZ  , Area = 0.343612
+    |_ child 3   ---->     ATOM       ATOMICSEQUENCE       A8     7.280       32        36  | 
+      |_ child 1   -->    PULSE        TRAPGRADPULSE      P11     7.280       32        36  |  Axis = GX  , ADC type ADC|IMG|ACS|PC|NOISE = 0|1|0|0|0 , Area = 1.62624 , FlatTop: (Area,time)= (1.5708,6.8)
+    |_ child 4   ---->     ATOM       ATOMICSEQUENCE       A9     4.260        0         8  | 
+      |_ child 1   -->    PULSE        TRAPGRADPULSE      P12     4.260        0         4  |  Axis = GX  , Area = 3.25247
+      |_ child 2   -->    PULSE        TRAPGRADPULSE      P13     1.220        0         4  |  Axis = GY  , Area = -0.368155
+      |_ child 3   -->    PULSE        TRAPGRADPULSE      P17     0.840        0         4  |  Axis = GZ  , Area = -0.171806
+  |_ child 6   ------>     ATOM  DELAYATOMICSEQUENCE       TC  2584.640        0         2  |  DelayType = B2E  , Delay = 2584.64
+    |_ child 1   ---->    PULSE           EMPTYPULSE    eP_TC  2584.640        0         2  |  Axis = none 

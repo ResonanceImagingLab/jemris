@@ -81,7 +81,8 @@ A(:,:,:,5)=Sample.DB;
 %save 4D data array for JEMRIS in the order (type , X, Y, Z)
 A=permute(A,[4 1 2 3]); 
 
-SF=[pwd,'/sample.h5'];
+% SF=[pwd,'/sample.h5'];
+SF=[pwd, FNAME];
 if exist(SF)==2, delete(SF); end
 h5create(SF,'/sample/data',size(A));
 h5create(SF,'/sample/resolution',[1 3]);

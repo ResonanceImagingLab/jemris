@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters FOVx="128" FOVy="128" FOVz="128" GradMaxAmpl="60" GradSlewRate="180" Name="P"
+            Nx="32"
+            Ny="32"
+            Nz="24"
+            TD="2800"
+            TE="3"
+            TI="900"
+            TR="5000">
+   <ConcatSequence Name="R" Observe="NZ=P.Nz" Repetitions="NZ">
+      <ConcatSequence Name="C0">
+         <ATOMICSEQUENCE Name="A5">
+            <HARDRFPULSE Duration="10" FlipAngle="180" Name="P7" Symmetry="0.5"/>
+         </ATOMICSEQUENCE>
+      </ConcatSequence>
+      <DELAYATOMICSEQUENCE Delay="InvT-0.5*InvPul-0.5*RageDur" Name="TA"
+                           Observe="InvT=P.TI, InvPul=P7.Duration, RageDur=C.Duration"/>
+      <CONCATSEQUENCE LoopFlag="26" Name="C" Observe="SamplesY=P.Ny" Repetitions="SamplesY">
+         <ATOMICSEQUENCE Name="A1">
+            <HARDRFPULSE Duration="0.1" FlipAngle="5" InitialPhase="0.5*117*((RageCount^2)+RageCount+2)"
+                         Name="P1"
+                         Observe="RageCount=C.Counter"/>
+         </ATOMICSEQUENCE>
+         <ATOMICSEQUENCE Name="A2">
+            <TRAPGRADPULSE Area="-PFArea/2" Axis="GX" Name="P2" Observe="PFArea=P4.Area"/>
+            <TRAPGRADPULSE Area="-MaxY+RageCount*PixelY" Axis="GY" Name="P3"
+                           Observe="MaxY=P.KMAXy, RageCount=C.Counter, PixelY=P.DKy"/>
+            <TRAPGRADPULSE Area="-MaxZ+SliceCount*PixelZ" Axis="GZ" Name="P14"
+                           Observe="MaxZ=P.KMAXz, SliceCount=R.Counter, PixelZ=P.DKz"/>
+         </ATOMICSEQUENCE>
+         <ATOMICSEQUENCE Name="A3">
+            <TRAPGRADPULSE ADCFlag="2" ADCs="SamplesX" Axis="GX" FlatTopArea="2*MaxX" FlatTopTime="6.8"
+                           Name="P4"
+                           Observe="MaxX=P.KMAXx, SamplesX=P.Nx"
+                           PhaseLock="1"/>
+         </ATOMICSEQUENCE>
+         <ATOMICSEQUENCE Name="A4">
+            <TRAPGRADPULSE Area="2*PFArea" Axis="GX" Name="P5" Observe="PFArea=P4.Area"/>
+            <TRAPGRADPULSE Area="2*MaxZ" Axis="GZ" Name="P15" Observe="MaxZ=P.KMAXz"/>
+         </ATOMICSEQUENCE>
+      </CONCATSEQUENCE>
+      <DELAYATOMICSEQUENCE Delay="InvTT-InvT-RageDur" Name="TB"
+                           Observe="InvT=P.TI, InvTT=P.TD, RageDur=C.Duration"/>
+      <CONCATSEQUENCE LoopFlag="26" Name="C1" Observe="SamplesY=P.Ny" Repetitions="SamplesY">
+         <ATOMICSEQUENCE Name="A6">
+            <HARDRFPULSE Duration="0.1" FlipAngle="5" InitialPhase="0.5*117*((RageTDur^2)+RageTDur+2)"
+                         Name="P8"
+                         Observe="RageTDur=C1.Counter"/>
+         </ATOMICSEQUENCE>
+         <ATOMICSEQUENCE Name="A7">
+            <TRAPGRADPULSE Area="-PEArea/2" Axis="GX" Name="P9" Observe="PEArea=P11.Area"/>
+            <TRAPGRADPULSE Area="-MaxY+RageTDur*PixelY" Axis="GY" Name="P10"
+                           Observe="MaxY=P.KMAXy, RageTDur=C1.Counter, PixelY=P.DKy"/>
+            <TRAPGRADPULSE Area="-MaxZ+SliceCount*PixelZ" Axis="GZ" Name="P16"
+                           Observe="MaxZ=P.KMAXz, SliceCount=R.Counter, PixelZ=P.DKz"/>
+         </ATOMICSEQUENCE>
+         <ATOMICSEQUENCE Name="A8">
+            <TRAPGRADPULSE ADCFlag="2" ADCs="SamplesX" Axis="GX" FlatTopArea="2*MaxX" FlatTopTime="6.8"
+                           Name="P11"
+                           Observe="MaxX=P.KMAXx, SamplesX=P.Nx"
+                           PhaseLock="1"/>
+         </ATOMICSEQUENCE>
+         <ATOMICSEQUENCE Name="A9">
+            <TRAPGRADPULSE Area="2*PEArea" Axis="GX" Name="P12" Observe="PEArea=P11.Area"/>
+            <TRAPGRADPULSE Area="2*MaxZ" Axis="GZ" Name="P17" Observe="MaxZ=P.KMAXz"/>
+         </ATOMICSEQUENCE>
+      </CONCATSEQUENCE>
+      <DELAYATOMICSEQUENCE Delay="TimeRep-InvTT-(0.5*RageDur)" Name="TC"
+                           Observe="TimeRep=P.TR, InvTT=P.TD, RageDur=C.Duration"/>
+   </ConcatSequence>
+</Parameters>
