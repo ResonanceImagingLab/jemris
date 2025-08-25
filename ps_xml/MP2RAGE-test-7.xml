@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters FOVx="220" FOVy="220" FOVz="160" GradMaxAmpl="20" Name="P" Nx="220" Ny="220"
+            Nz="160"
+            TI="1.1"
+            TR="6.75"
+            TxCoilArray="/usr/local/share/jemris/matlab/uniform.xml">
+   <ConcatSequence Name="MP2RAGE" Repetitions="1">
+      <ATOMICSEQUENCE Name="Inversion">
+         <HARDRFPULSE Duration="10" FlipAngle="180" InitialPhase="0" Name="P1" Symmetry="0.5"/>
+      </ATOMICSEQUENCE>
+      <DELAYATOMICSEQUENCE Delay="168" DelayType="B2E" Name="TA"/>
+      <CONCATSEQUENCE Name="C2" Observe="N=P.Ny" Repetitions="N">
+         <ATOMICSEQUENCE Name="A2">
+            <HARDRFPULSE Duration="3.12" FlipAngle="5" Name="P2" Observe="D=P2.Duration" Symmetry="0.5"/>
+            <TRAPGRADPULSE Axis="GX" FlatTopArea="-0.5*A" FlatTopTime="N*0.004" InitialDelay="D"
+                           MaxAmpl="G"
+                           Name="P3"
+                           Observe="D=P2.Duration, A=P5.FlatTopArea, G=P.GradMaxAmpl, N=P.Nx"
+                           SlewRate="200"/>
+            <TRAPGRADPULSE Axis="GY" FlatTopArea="((N/2)-C)/42.577*F" FlatTopTime="N*0.004"
+                           InitialDelay="D"
+                           MaxAmpl="G"
+                           Name="P4"
+                           Observe="D=P2.Duration, C=C2.Counter, N=P.Ny, G=P.GradMaxAmpl, F=P.FOVy, A=P4.FlatTopArea"
+                           SlewRate="200"/>
+         </ATOMICSEQUENCE>
+         <ATOMICSEQUENCE Name="A3" Observe="D=P2.Duration">
+            <TRAPGRADPULSE ADCs="N" Axis="GX" FlatTopArea="N/(2*F*42.577)" FlatTopTime="N*0.004"
+                           InitialDelay="D"
+                           Name="P5"
+                           Observe="D=P3.Duration, N=P.Nx, F=P.FOVx, G=P.GradMaxAmpl, T=P5.FlatTopTime, A=P5.FlatTopArea"
+                           SlewRate="200"/>
+         </ATOMICSEQUENCE>
+         <DELAYATOMICSEQUENCE Delay="3" DelayType="B2E" Name="D3"/>
+      </CONCATSEQUENCE>
+      <DELAYATOMICSEQUENCE Delay="2400" DelayType="B2E" Name="TB"/>
+   </ConcatSequence>
+</Parameters>
